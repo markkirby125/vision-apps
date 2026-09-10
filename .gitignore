@@ -48,3 +48,4 @@ temp/
 
 # Agent harness config
 reasonix.toml
+.reasonix/
