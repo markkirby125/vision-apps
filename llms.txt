@@ -1,6 +1,6 @@
 # Vision Apps
 
-> Umbrella repository for Mark Kirby's accessibility toolkit.
+> Umbrella repository for Paul Kirby's accessibility toolkit.
 
 - [ChromaCalm](https://github.com/markkirby125/chromacalm): Zero-install spectral notch filtering web tool for photophobia, migraine, and screen halation.
 - [SoftContrast](https://github.com/markkirby125/softcontrast): Anti-halation reading palette generator using APCA and OKLCH.

@@ -1,6 +1,6 @@
 # Vision Apps
 
-An umbrella repository for Mark Kirby's accessibility toolkit — four small, dependency-light projects that reduce visual strain for low-vision, photophobic, and astigmatic readers.
+An umbrella repository for Paul Kirby's accessibility toolkit — four small, dependency-light projects that reduce visual strain for low-vision, photophobic, and astigmatic readers.
 
 ## Projects
 

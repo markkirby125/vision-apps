@@ -1,6 +1,6 @@
 ## Project Identity & Tech Stack
 
-- **Project Name**: Vision Apps — umbrella repository for Mark Kirby's accessibility toolkit.
+- **Project Name**: Vision Apps — umbrella repository for Paul Kirby's accessibility toolkit.
 - **Niche**: accessibility utilities for low vision, photophobia, migraines, and sensory sensitivities.
 - **Tech Stack**: Vanilla JavaScript, HTML, SVG, and CSS for the three web tools (ChromaCalm, SoftContrast, FocusBeacon); Python for `terminal-a11y`; static GitHub Pages deployment.
 - **No heavy third-party UI libraries** (e.g. Radix, Shadcn, Material UI) unless already present in the dependency manifest.
