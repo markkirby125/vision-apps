@@ -51,9 +51,13 @@ reasonix.toml
 .reasonix/
 
 # Local working clones of the standalone project repos.
-# Each is its own git repository (see AGENTS.md §8); ignored so `git add .`
-# cannot capture them as embedded repos/gitlinks. Nested, not vendored.
-/chromacalm/
-/softcontrast/
-/focusbeacon/
-/terminal-a11y/
+# Each is its own git repository (see AGENTS.md §8). They live outside this
+# repo, in ~/dev/clones — outside the Google Drive/Insync tree this workspace
+# sits in — and are symlinked in for visibility. These patterns deliberately
+# have NO trailing slash: a trailing slash matches directories only, so the
+# symlinks would fall through and `git add .` would commit machine-specific
+# absolute paths.
+/chromacalm
+/softcontrast
+/focusbeacon
+/terminal-a11y
