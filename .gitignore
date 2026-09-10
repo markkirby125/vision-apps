@@ -49,3 +49,11 @@ temp/
 # Agent harness config
 reasonix.toml
 .reasonix/
+
+# Local working clones of the standalone project repos.
+# Each is its own git repository (see AGENTS.md §8); ignored so `git add .`
+# cannot capture them as embedded repos/gitlinks. Nested, not vendored.
+/chromacalm/
+/softcontrast/
+/focusbeacon/
+/terminal-a11y/

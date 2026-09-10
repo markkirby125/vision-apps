@@ -4,16 +4,15 @@ An umbrella repository for Mark Kirby's accessibility toolkit — four small, de
 
 ## Projects
 
-| Project | Description | Repo |
-| --- | --- | --- |
-| **ChromaCalm** | Zero-install spectral notch filtering web tool for photophobia, migraine, and screen halation. | [markkirby125/chromacalm](https://github.com/markkirby125/chromacalm) |
-| **SoftContrast** | Anti-halation reading palette generator using APCA and OKLCH. | [markkirby125/softcontrast](https://github.com/markkirby125/softcontrast) |
-| **terminal-a11y** | Terminal accessibility enhancement layer (screen-reader, photophobia, sensory-budget, braille, and audio-progress modes). | [markkirby125/terminal-a11y](https://github.com/markkirby125/terminal-a11y) |
-| **FocusBeacon** | Ultra-lightweight vanilla JS focus-ring accessibility engine with a high-contrast dual-contour focus ring and cursor radar. | [markkirby125/focusbeacon](https://github.com/markkirby125/focusbeacon) |
+| Project | Description | Repo | Live |
+| --- | --- | --- | --- |
+| **ChromaCalm** | Zero-install spectral notch filtering web tool for photophobia, migraine, and screen halation. | [markkirby125/chromacalm](https://github.com/markkirby125/chromacalm) | [chromacalm](https://markkirby125.github.io/chromacalm/) |
+| **SoftContrast** | Anti-halation reading palette generator using APCA and OKLCH. | [markkirby125/softcontrast](https://github.com/markkirby125/softcontrast) | [softcontrast](https://markkirby125.github.io/softcontrast/) |
+| **terminal-a11y** | Terminal accessibility enhancement layer (screen-reader, photophobia, sensory-budget, braille, and audio-progress modes). | [markkirby125/terminal-a11y](https://github.com/markkirby125/terminal-a11y) | — |
+| **FocusBeacon** | Ultra-lightweight vanilla JS focus-ring accessibility engine with a high-contrast dual-contour focus ring and cursor radar. | [markkirby125/focusbeacon](https://github.com/markkirby125/focusbeacon) | [focusbeacon](https://markkirby125.github.io/focusbeacon/) |
 
-No GitHub Pages site is published for any of the four projects yet: their `pages.yml`
-deploy workflows fail at the "Setup Pages" step, so the `markkirby125.github.io/*` URLs
-return 404. Each project runs from a clone of its own repository in the meantime.
+The three web tools are served from GitHub Pages. `terminal-a11y` is a CLI package with no
+hosted demo; install it from its repository.
 
 ## Layout
 

@@ -635,10 +635,13 @@ non-visual progress feedback for blind users or screen magnifier users zoomed fa
 
 | Project | Repo Structure | Distribution |
 |---|---|---|
-| ChromaCalm | `chromacalm.html` (single file, ~23KB) | GitHub Pages root (not yet enabled) |
-| SoftContrast | `index.html` + `css/` + 7 JS modules | GitHub Pages root (not yet enabled) |
-| FocusBeacon | `focusbeacon.min.js` (~13KB) + `index.html` | GitHub Pages (not yet enabled); npm/jsDelivr publishing pending |
+| ChromaCalm | `chromacalm.html` (single file, ~23KB) | GitHub Pages: <https://markkirby125.github.io/chromacalm/> |
+| SoftContrast | `index.html` + `css/` + 7 JS modules | GitHub Pages: <https://markkirby125.github.io/softcontrast/> |
+| FocusBeacon | `focusbeacon.min.js` (~13KB) + `index.html` | GitHub Pages: <https://markkirby125.github.io/focusbeacon/>; npm/jsDelivr publishing pending |
 | Terminal Layer | Python package (`terminal_a11y`) | GitHub only; PyPI publishing pending |
+
+ChromaCalm's workflow copies `chromacalm.html` to `_site/index.html`, so the Pages root
+resolves even though the repository has no `index.html`.
 
 ### 6.2 Problem-First Authentic Messaging
 

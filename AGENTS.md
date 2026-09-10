@@ -65,6 +65,8 @@ Automated agent governance. Behavioral rules only.
 
 This repo (`markkirby125/vision-apps`) is documentation-only — no `package.json`, no `pyproject.toml`, no build or test step. Gate in the project repo you are actually changing.
 
+The four project repos are cloned locally in this workspace (`chromacalm/`, `softcontrast/`, `focusbeacon/`, `terminal-a11y/`) and git-ignored, so the gate below runs from here.
+
 1. **Gate**: `npm run test` in `chromacalm` / `softcontrast` / `focusbeacon` (`node --test tests/*.test.mjs`); `pip install pytest .` then `pytest -q` in `terminal-a11y`. No project repo defines a `lint` script.
-2. **Deploy**: `git push origin main` in whichever repo you changed — `markkirby125/{chromacalm,softcontrast,terminal-a11y,focusbeacon}`, or `markkirby125/vision-apps` for these docs. This docs clone currently has no `origin` remote configured.
+2. **Deploy**: `git push origin main` in whichever repo you changed — `markkirby125/{chromacalm,softcontrast,terminal-a11y,focusbeacon}`, or `markkirby125/vision-apps` for these docs.
 3. **Repair**: Maximum 3 local retries on stderr failure before halting for user intervention.
