@@ -44,7 +44,7 @@ Most developers assume vision accessibility begins and ends with high-contrast d
 
 ### Project 3: FocusBeacon — Dual-Ring Keyboard Focus & Cursor Radar
 * **Target Audience:** Tunnel vision (glaucoma, retinitis pigmentosa), motor/keyboard-only navigators, severe low vision.
-* **Form Factor:** 2KB vanilla JavaScript drop-in library or lightweight browser extension.
+* **Form Factor:** Vanilla JavaScript drop-in library (`focusbeacon.min.js` is ~13KB minified) or lightweight browser extension.
 * **Technical Architecture:**
   * **Dual-Contour Focus Outline:** 3px thick alternating ring (1.5px white inside, 1.5px black outside) that mathematically guarantees high visibility against any background color or background image.
   * **Cursor Radar Hotkey:** Double-tapping `Ctrl` triggers an expanding, high-contrast ripple animation around the mouse cursor to instantly locate it on 4K/high-DPI monitors.
@@ -52,12 +52,15 @@ Most developers assume vision accessibility begins and ends with high-contrast d
 
 ---
 
-### Project 4: Terminal Accessibility Patch (Existing Repo Integration)
+### Project 4: terminal-a11y — Terminal Accessibility Layer
 * **Target Audience:** Visually impaired and light-sensitive software engineers and sysadmins.
-* **Form Factor:** Enhancement to `residential-network-diagnostics` (or standalone CLI wrapper).
+* **Form Factor:** Standalone Python CLI package at [markkirby125/terminal-a11y](https://github.com/markkirby125/terminal-a11y). The earlier idea of patching `residential-network-diagnostics` was not taken; that repo remains an unrelated network-diagnostics toolkit.
 * **Technical Architecture:**
   * `--screen-reader` (`--sr`): Strips out spinning progress indicators, ASCII charts, and ANSI escape codes so tools like NVDA, Orca, and VoiceOver read clean sequential output.
   * `--photophobia` (`--soft`): Swaps blinding neon terminal colors for muted amber and soft cream.
+  * `--sensory-budget N`: Throttles output to a line budget with a suppression summary.
+  * `--braille`: Wraps text at 40 columns and substitutes unsupported glyphs with ASCII.
+  * `--audio-progress`: Emits milestone tones through platform-native audio (`winsound`/`afplay`/`aplay`).
 
 ---
 

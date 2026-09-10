@@ -1,6 +1,6 @@
 # TASKS.md — Vision Apps task register
 
-Source of truth for task priority, model/effort, and skill (AGENTS.md §5.I).
+Source of truth for task priority, model/effort, and skill (AGENTS.md §1).
 Row shape: `- [ ] **P1 — Short name** — pro (high) · `skill-name`. One-line summary.`
 Model: `flash` = fetch / patch / implement · `pro` = judgement / architecture / legal.
 Flash effort: `off` = registry/listing-only or deterministic edit · `on` = requires model-generated code, copy, or judgement.
@@ -37,6 +37,10 @@ Every open row MUST carry five fields: priority, name, summary, model (with effo
 COMPLETED TASKS:
 Move completed tasks here under dated headings (ISO format: YYYY-MM-DD) with completion checkmarks and summary:
 -->
+
+### 2026-09-10 — Umbrella docs consistency audit
+- [x] **P2 — Umbrella Docs Consistency Audit** — pro (low) · `surgical-patch`. Verified every claim in `README.md`, `llms.txt`, `AGENTS.md`, `docs/TASKS.md`, `docs/reference/*`, `ACCESSIBILITY_PROJECT*` and `research/` against the four standalone repos and live endpoints. Removed three dead GitHub Pages "Live" links (all four `markkirby125.github.io/*` URLs return 404; the `pages.yml` deploys fail at "Setup Pages"); corrected the EXPANDED §6.1 deployment table (`chromacalm.html` not `index.html`, no `palettes.json`, `focusbeacon.min.js` ~13KB not 2KB, no `demo.html`, npm/jsDelivr unpublished, PyPI unpublished); fixed the unsourced "WCAG-compliant" claim; scoped the "OS-neutral / zero-install" claim to the three web tools; refreshed the research line counts; added Python to `project-stack.md`; made `AGENTS.md` §8 gate/deploy steps runnable (no repo defines a `lint` script); repaired the dangling `AGENTS.md §5.I` citation in `TASKS.md`; and completed the AGENTS.md Knowledge Map. `llms.txt` and `domain-spec.md` verified clean — no changes. Also verified the ChromaCalm bookmarklet `< 2 KB` claim is **true** (measured 411–457 B across presets) and aligned EXPANDED §2.1–§2.3 with the shipped filter: `color-interpolation-filters="sRGB"` (not `linearRGB`) and the actual `PRESETS` matrices, per the "docs follow the code" decision.
+  > Note: not pushed — this clone has no `origin` remote and sits on the stale branch `markkirby125/feat/focusbeacon-phases-7-12` (its tree is byte-identical to remote `main`). The four project repos were also cloned as siblings under `Hosted-Services/` so future audits can read source locally.
 
 ### 2026-09-10 — Terminal A11y documentation sync
 - [x] **P2 — Terminal A11y Documentation Sync** — flash (on) · `documentation`. Added development/testing/build instructions to README and updated IMPLEMENTATION_PLAN with the full file map, completed phases 7–12, and precise `NO_COLOR` verification wording. Pytest green; package builds.

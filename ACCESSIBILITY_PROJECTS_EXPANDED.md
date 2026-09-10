@@ -2,8 +2,9 @@
 ## Low Vision · Photophobia · Sensory Utilities
 
 > Synthesised from primary-source research across clinical ophthalmology, W3C specifications,
-> browser internals, and OS accessibility APIs. All projects are 100% OS-neutral: they run
-> identically on Windows, macOS, Linux, Android, and iOS without installation.
+> browser internals, and OS accessibility APIs. The three web tools (ChromaCalm, SoftContrast,
+> FocusBeacon) are OS-neutral and run without installation; `terminal-a11y` is a Python CLI
+> package and requires installation (`pip install`).
 
 ---
 
@@ -93,42 +94,41 @@ A naive semi-transparent coloured div positioned over page content:
 - Makes already-dark text muddy and low-contrast
 - Cannot implement spectral notch filtering — only additive colour blending
 
-The feColorMatrix approach transforms every pixel through a physically-calibrated 4×5 linear
-matrix applied in **linearRGB space** (matching real optical filter transmission behaviour).
+The feColorMatrix approach transforms every pixel through a 4×5 colour matrix.
 
-> Critical: `color-interpolation-filters="linearRGB"` is mandatory. Using sRGB distorts
-> gamma and darkens midtones — physical optical filters obey linear photon transmission.
+> Note: ChromaCalm applies the matrix with `color-interpolation-filters="sRGB"`, not
+> `linearRGB`. The preset matrices in §2.2 are the values that actually ship, so they are the
+> authority for the current rendering — switching interpolation spaces would require
+> re-deriving them, since the two change the result together.
 > Source: W3C Filter Effects Module Level 1 §15
 > https://www.w3.org/TR/filter-effects-1/#feColorMatrixElement
 
 ---
 
-### 2.2 Calibrated Spectral Preset Matrices
+### 2.2 Spectral Preset Matrices
 
 #### Preset 1 — Harvard 520 nm Green (Active Migraine)
-Isolates the green subpixel channel using Rec. 709 luminance weights:
+Isolates the green subpixel channel, passing green through unweighted:
 ```
-values="0 0 0 0 0   0.2126 0.7152 0.0722 0 0   0 0 0 0 0   0 0 0 1 0"
+values="0 0 0 0 0   0 1 0 0 0   0 0 0 0 0   0 0 0 1 0"
 ```
 
 #### Preset 2 — Clinical FL-41 Rose (Photophobia / Blepharospasm)
-Blocks ~78% of blue-cyan (480–500 nm LED spikes), transmits 95% red, 68% green:
+Scales the channels to 100% red, 70% green, 50% blue, with a +0.05 offset on green and blue:
 ```
-values="0.95 0.02 0  0 0.02   0 0.68 0.02 0 0   0 0.02 0.22 0 0   0 0 0 1 0"
+values="1.0 0.0 0.0 0.0 0.0   0.0 0.7 0.0 0.0 0.05   0.0 0.0 0.5 0.0 0.05   0.0 0.0 0.0 1.0 0.0"
 ```
 
 #### Preset 3 — Matte Paper / E-Ink (Low Stimulus Reading)
-Converts to warm monochrome grey, clamps peak luminance by 35%, lifts black floor by +8%:
+Scales red and green to 90%, blue to 80%, with a small cross-channel term and a +0.05 offset:
 ```
-values="0.1382 0.4649 0.0469 0 0.08   0.1382 0.4649 0.0469 0 0.08
-        0.1382 0.4649 0.0469 0 0.08   0 0 0 1 0"
+values="0.9 0.05 0.0 0.0 0.05   0.0 0.9 0.05 0.0 0.05   0.0 0.0 0.8 0.0 0.0   0.0 0.0 0.0 1.0 0.0"
 ```
 
 #### Preset 4 — Sleep Preparation / Melatonin Mode [Creative Enhancement]
-Blocks all blue and green output, passing only 620 nm+ red wavelengths to prevent circadian
-disruption when using screens within 2 hours of sleep:
+Passes only the red channel, zeroing green and blue:
 ```
-values="1 0.08 0 0 0   0 0.15 0 0 0   0 0 0.05 0 0   0 0 0 1 0"
+values="1 0 0 0 0   0 0 0 0 0   0 0 0 0 0   0 0 0 1 0"
 ```
 
 ---
@@ -139,7 +139,7 @@ values="1 0.08 0 0 0   0 0.15 0 0 0   0 0 0.05 0 0   0 0 0 1 0"
 
 **Solution:** Encode the entire SVG filter as an inline Data URI:
 ```javascript
-const FILTER_URI = `url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg"><filter id="cc" color-interpolation-filters="linearRGB"><feColorMatrix type="matrix" values="MATRIX_VALUES"/></filter></svg>#cc')`;
+const FILTER_URI = `url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg"><filter id="cc" color-interpolation-filters="sRGB"><feColorMatrix type="matrix" values="MATRIX_VALUES"/></filter></svg>#cc')`;
 document.documentElement.style.filter = FILTER_URI;
 ```
 
@@ -325,7 +325,7 @@ palette's accent colour at 15% opacity to support line tracking without a physic
 **Target audiences:** Tunnel vision (glaucoma, retinitis pigmentosa), motor/keyboard-only
 navigators, screen magnifier users, low vision on 4K/ultrawide displays
 
-**Form factor:** ~2 KB vanilla JavaScript drop-in library (zero dependencies, zero frameworks)
+**Form factor:** Vanilla JavaScript drop-in library, ~13 KB minified (zero dependencies, zero frameworks)
 
 ---
 
@@ -635,17 +635,17 @@ non-visual progress feedback for blind users or screen magnifier users zoomed fa
 
 | Project | Repo Structure | Distribution |
 |---|---|---|
-| ChromaCalm | `index.html` (single file, <64KB) | GitHub Pages root |
-| SoftContrast | `index.html` + `palettes.json` | GitHub Pages root |
-| FocusBeacon | `focusbeacon.js` (2KB min) + `demo.html` | jsDelivr CDN |
-| Terminal Layer | Python package | PyPI + GitHub |
+| ChromaCalm | `chromacalm.html` (single file, ~23KB) | GitHub Pages root (not yet enabled) |
+| SoftContrast | `index.html` + `css/` + 7 JS modules | GitHub Pages root (not yet enabled) |
+| FocusBeacon | `focusbeacon.min.js` (~13KB) + `index.html` | GitHub Pages (not yet enabled); npm/jsDelivr publishing pending |
+| Terminal Layer | Python package (`terminal_a11y`) | GitHub only; PyPI publishing pending |
 
 ### 6.2 Problem-First Authentic Messaging
 
 - *"I got tired of screen dimmers making text muddy — built a zero-install bookmarklet using Harvard's 520nm green-band research to kill screen glare during migraines"*
 - *"Why high-contrast dark mode causes halation for astigmatism (and a free APCA-based palette generator that actually fixes it)"*
-- *"The cursor just disappears on my 4K monitor — here's a 2KB script that adds a double-tap Ctrl radar ring to find it instantly"*
-- *"I built WCAG-compliant CLI flags for screen reader users tired of spinners crashing NVDA"*
+- *"The cursor just disappears on my 4K monitor — here's a 13KB script that adds a double-tap Ctrl radar ring to find it instantly"*
+- *"I built CLI flags for screen reader users tired of spinners crashing NVDA"*
 
 ### 6.3 Subreddit Targeting
 
@@ -684,13 +684,13 @@ community foothold than four disconnected repos, and allows users to layer solut
 
 All findings are fully documented and cited in the `/research/` directory:
 
-| File | Content | Size |
+| File | Content | Lines |
 |---|---|---|
-| `research/chromacalm-research.md` | 520nm science, FL-41, SVG matrices, bookmarklet | ~50KB |
-| `research/softcontrast-research.md` | APCA math, OKLCH, halation, CSS injection | ~665 lines |
-| `research/focusbeacon-research.md` | WCAG 2.2, dual-contour proof, tunnel vision | 759 lines |
-| `research/terminal-accessibility-research.md` | ANSI, screen readers, amber phosphor, detection | 867 lines |
+| `research/chromacalm-research.md` | 520nm science, FL-41, SVG matrices, bookmarklet | 560 |
+| `research/softcontrast-research.md` | APCA math, OKLCH, halation, CSS injection | 672 |
+| `research/focusbeacon-research.md` | WCAG 2.2, dual-contour proof, tunnel vision | 763 |
+| `research/terminal-accessibility-research.md` | ANSI, screen readers, amber phosphor, detection | 871 |
 
 ---
 
-*Document generated: 2026-09-09; updated 2026-09-10 | All projects: OS-neutral, zero-install, open-source*
+*Document generated: 2026-09-09; updated 2026-09-10 | All projects open-source; the three web tools are OS-neutral and zero-install, `terminal-a11y` requires Python*

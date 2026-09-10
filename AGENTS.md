@@ -10,6 +10,10 @@ Automated agent governance. Behavioral rules only.
 | `docs/reference/domain-spec.md` | Consult ONLY when modifying color/contrast formulas, SVG filters, or accessibility thresholds. |
 | `docs/TASKS.md` | Consult on EVERY task to read/write task register (priority, model, effort, skill). |
 | `ACCESSIBILITY_PROJECTS_EXPANDED.md` | Consult for broad session onboarding and niche background. |
+| `README.md` | Project index; keep repo links accurate. |
+| `llms.txt` | LLM-facing project index; keep in sync with `README.md`. |
+| `ACCESSIBILITY_PROJECT_IDEAS.md` | Original project concepts and distribution strategy. |
+| `research/` | Per-project primary-source research notes. |
 
 ## 1. Task Execution & Skill Protocol
 
@@ -59,6 +63,8 @@ Automated agent governance. Behavioral rules only.
 
 ## 8. Build & Verification Pipeline
 
-1. **Gate**: `npm run lint && npm run test`
-2. **Deploy**: `git push origin main`
+This repo (`markkirby125/vision-apps`) is documentation-only — no `package.json`, no `pyproject.toml`, no build or test step. Gate in the project repo you are actually changing.
+
+1. **Gate**: `npm run test` in `chromacalm` / `softcontrast` / `focusbeacon` (`node --test tests/*.test.mjs`); `pip install pytest .` then `pytest -q` in `terminal-a11y`. No project repo defines a `lint` script.
+2. **Deploy**: `git push origin main` in whichever repo you changed — `markkirby125/{chromacalm,softcontrast,terminal-a11y,focusbeacon}`, or `markkirby125/vision-apps` for these docs. This docs clone currently has no `origin` remote configured.
 3. **Repair**: Maximum 3 local retries on stderr failure before halting for user intervention.

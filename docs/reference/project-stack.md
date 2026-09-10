@@ -2,13 +2,13 @@
 
 - **Project Name**: Vision Apps — umbrella repository for Mark Kirby's accessibility toolkit.
 - **Niche**: accessibility utilities for low vision, photophobia, migraines, and sensory sensitivities.
-- **Tech Stack**: Vanilla JavaScript, HTML, SVG, and CSS (zero-install web tools and browser extensions); static GitHub Pages deployment.
+- **Tech Stack**: Vanilla JavaScript, HTML, SVG, and CSS for the three web tools (ChromaCalm, SoftContrast, FocusBeacon); Python for `terminal-a11y`; static GitHub Pages deployment.
 - **No heavy third-party UI libraries** (e.g. Radix, Shadcn, Material UI) unless already present in the dependency manifest.
-- **Language & Conventions**: Strict JavaScript/TypeScript; standard CSS/SVG; empathetic and clear documentation tone.
+- **Language & Conventions**: Strict JavaScript/TypeScript for the web tools, strictly-typed Python for `terminal-a11y`; standard CSS/SVG; empathetic and clear documentation tone.
 
 ## Directory Layout & Module Invariants
 
-- **Module Invariants**: 100% client-side execution (no backend dependencies); no heavy UI frameworks; strict adherence to lightweight single-file architectures.
+- **Module Invariants**: the three web tools are 100% client-side with no backend dependencies; `terminal-a11y` is a server-side Python CLI package. No heavy UI frameworks; the web tools favour lightweight single-file or few-module architectures.
 
 - **Repositories** (each project lives in its own repo; this repo holds the shared docs):
   ```text
