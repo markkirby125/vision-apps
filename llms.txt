@@ -1,0 +1,8 @@
+# Vision Apps
+
+> Umbrella repository for Mark Kirby's accessibility toolkit.
+
+- [ChromaCalm](https://github.com/markkirby125/chromacalm): Zero-install spectral notch filtering web tool for photophobia, migraine, and screen halation.
+- [SoftContrast](https://github.com/markkirby125/softcontrast): Anti-halation reading palette generator using APCA and OKLCH.
+- [terminal-a11y](https://github.com/markkirby125/terminal-a11y): Terminal accessibility enhancement layer (screen-reader, photophobia, sensory-budget, braille, audio-progress).
+- [FocusBeacon](https://github.com/markkirby125/focusbeacon): Ultra-lightweight vanilla JS focus-ring accessibility engine with a high-contrast dual-contour focus ring and cursor radar.
