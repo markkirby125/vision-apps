@@ -1,6 +1,6 @@
 # Browser-Based Vision App Ideas — Buildable Specs (Brainstorming Pass)
 
-> Status: Understanding Lock **confirmed by user** (2026-09-10), all six ideas, buildable-spec depth. No implementation approved yet — next gate is a `multi-agent-brainstorming` peer review before any code.
+> Status: Understanding Lock **confirmed by user** (2026-09-10), all six ideas, buildable-spec depth. Peer review (`multi-agent-brainstorming`) **completed**; mandatory revisions R1–R9 **folded into the ⭐ specs below**. No implementation approved — next gate is build-order selection + per-project planning.
 > Parent research: `research/browser-vision-app-ideas.md`.
 
 ## Shared constraints (all six)
@@ -23,20 +23,20 @@
 3. **Hybrid: shared core + lab page + bookmarklet (recommended)** — same scanner/renderer module powers both. ✅
 
 **Architecture (chosen)**
-- `scanner.js` — walks visible elements, reads computed background/foreground colors, converts sRGB → WCAG relative luminance, aggregates into a viewport grid (`cells[{x,y,w,h,luma}]`). Uses `requestIdleCallback`, caps cell count.
-- `renderer.js` — draws heatmap on native `<canvas>`; applies softening as SVG overlay patches (dark translucent rectangles with blur) only on cells above the user threshold.
+- `scanner.js` — walks at most ~2,000 visible elements (sampled when the DOM is larger), reads computed background/foreground colors, converts sRGB → WCAG relative luminance, aggregates into a ~96×54 viewport grid (`cells[{x,y,w,h,luma}]`). Uses `requestIdleCallback`; never makes network calls.
+- `renderer.js` — draws heatmap on native `<canvas>`; applies softening as SVG overlay patches (dark translucent rectangles with blur) only on cells above the user threshold. The mask is `pointer-events: none` and **skips interactive elements** (links, buttons, inputs, form fields).
 - Lab page — URL input (iframe best-effort with friendly fallback), paste-HTML mode, threshold + strength sliders, export-bookmarklet button.
-- Bookmarklet — injects scanner+renderer+floating panel; panel is keyboard accessible and honors reduced motion.
+- Bookmarklet — injects scanner+renderer+floating panel; panel is keyboard accessible, honors reduced motion, and has an **instant off switch**. Plain-language label in the panel: "relative brightness estimate, not a glare measurement."
 
 **Data flow:** DOM → scanner → luminance grid → threshold → heatmap → user adjust → mask applied.
 
-**Edge cases:** images/video pixels unreadable (mark "unknown", skip); `position:fixed` and shadow DOM (v1: skip shadow roots); dynamic content (debounced MutationObserver); alpha colors (compute against white and black bounds); reduced motion (static heatmap, no fade animation).
+**Edge cases:** image/video/gradient regions are marked **"unmeasured"** and never scored as glare; `position:fixed` and shadow DOM (v1: skip shadow roots); dynamic content (debounced MutationObserver); alpha colors (compute against white and black bounds); reduced motion (static heatmap, no fade animation); strict CSP blocks injected styles → panel shows "this site blocks injected styles" instead of failing silently.
 
-**A11y of the tool:** text alternative listing top hotspot regions; native range inputs with labels; no color-only indication; panel doesn't trap focus.
+**A11y of the tool:** text alternative listing top hotspot regions; native range inputs with labels; no color-only indication; panel doesn't trap focus; heatmap has a plain-language explanation and off switch.
 
-**Testing:** `node --test` + jsdom for luminance math and thresholding; fixture-page smoke test; manual bookmarklet test on 3 real sites.
+**Testing:** `node --test` + jsdom for luminance math, thresholding, element cap and interactive-element skip; fixture-page smoke test; manual bookmarklet test on 3 real sites (including one strict-CSP site).
 
-**Risks:** "Glare" is a heuristic, not photometry (label it); heavy pages may jank (cap scan, idle scheduling); iframe mode limited by CORS.
+**Risks:** "Glare" is a heuristic, not photometry (labeled in UI); heavy pages may still jank (budget + idle scheduling + cap); iframe mode limited by CORS; unmeasured image regions may leave real glare unaddressed (disclosed in UI).
 
 ---
 
@@ -50,26 +50,27 @@
 3. Extension — later, after userscript validation.
 
 **Architecture (chosen)**
-- `scanner.js` — MutationObserver + computed-style rules: animations/transitions below a duration floor with high iteration counts; `<marquee>`/`<blink>`; sampled style toggling for JS-driven blinking; `<video autoplay>`.
-- `reducer.js` — per-element strategies: `animation-play-state: paused`, replace with static frame or dim cover, pause/mute video, always with a "Paused" badge and per-element "Show" undo. Never silently deletes content.
-- Profiles — `Reduced` (respects `prefers-reduced-motion`) and `Photosensitive` (stricter: freezes fast blinking text/cursors, pauses autoplay).
-- Per-site memory — `localStorage` keyed by hostname.
+- `scanner.js` — MutationObserver + computed-style rules: animations/transitions below a duration floor with high iteration counts; `<marquee>`/`<blink>`; sampled style toggling for JS-driven blinking; `<video autoplay>`. Sampling is **motion-triggered and throttled**: 500ms debounce, sleeps when idle.
+- `reducer.js` — per-element strategies: `animation-play-state: paused`, dim cover, pause/mute video, always with a "Paused" badge and per-element "Show" undo plus a per-site **allowlist** ("always allow on this site"). Never silently deletes content; never hides navigation or removes layout.
+- Profiles — `Reduced` (**default**; honors `prefers-reduced-motion`) and `Photosensitive` (**opt-in**; also freezes fast blinking text/cursors and pauses autoplay).
+- Scope statement in the panel: **"does not affect cross-origin iframes; canvas/rAF-loop animation is best-effort."**
+- Per-site memory — `localStorage` keyed by hostname; 10-second first-run explainer.
 
-**Data flow:** observe → classify risk score → profile policy → apply → persist per-site override.
+**Data flow:** observe → classify risk score → profile policy → apply → persist per-site override/allowlist.
 
-**Edge cases:** JS rAF-driven animation (sample-based detection is best-effort; add cover with note when detected); cross-origin iframes (label only, can't touch); canvas/game content (never break interactivity — skip); user dismisses a freeze (per-element undo); newly added nodes (observer).
+**Edge cases:** JS rAF-driven animation (sample-based detection is best-effort; dim cover + note when detected, never breaks the app); cross-origin iframes (label only, can't touch); canvas/game content (never break interactivity — skip); user dismisses a freeze (per-element undo); newly added nodes (observer); blinking text caret (excluded from default Reduced profile).
 
-**A11y of the tool:** panel keyboard-accessible; polite live-region announcements ("Paused 3 flashing elements"); the tool's own UI contains no flashing elements.
+**A11y of the tool:** panel keyboard-accessible; polite live-region announcements ("Paused 3 flashing elements"); the tool's own UI contains no flashing elements and no flashing badges.
 
-**Testing:** jsdom unit tests for rule classification; fixture page (CSS blink, marquee, autoplay video); manual browser run.
+**Testing:** jsdom unit tests for rule classification with an **injected clock** (deterministic timing); fixture page (CSS blink, marquee, autoplay video, blinking caret); manual browser run on an SPA and a news site.
 
-**Risks:** false positives pausing legitimate content (mitigate with undo + profiles); cannot measure display PWM — scope says "page content only".
+**Risks:** false positives pausing legitimate content (mitigate with default Reduced, per-element undo, allowlist); cannot measure display PWM — scope says "page content only"; sampling can still cost CPU on busy SPAs (throttling + idle sleep).
 
 ---
 
 ## 3. Keratoscope — astigmatism ghosting calibration lab
 
-**What:** Calibration wizard where the user matches their perceived ghost/double image, then generates a personal compensating CSS profile (directional edge emphasis, text-shadow cancellation, weight/spacing tweaks) exported as userstyle/bookmarklet.
+**What:** Calibration wizard where the user matches their perceived ghost/double image, then generates a personal compensating CSS profile (directional edge emphasis, text-shadow cancellation, weight/spacing tweaks) exported as userstyle/bookmarklet. Copy promise: **"a presentation tweak that may reduce perceived doubling for some users — no guarantee."**
 
 **Approaches considered**
 1. SVG `feDisplacementMap` pre-distortion — unproven, could worsen ghosting. ❌
@@ -77,20 +78,20 @@
 3. On-page live injector — later, once profile generation is validated.
 
 **Architecture (chosen)**
-- Wizard (DOM-based test chart): steps = direction → magnitude → ghost opacity → verify on a paragraph → export.
-- `profile.js` — stores `{dx, dy, opacity, blur, fontWeightDelta, letterSpacingDelta}` in `localStorage`; emits CSS string.
-- Exports — CSS userstyle block, bookmarklet that injects the stylesheet, JSON profile for portability.
-- Single-file HTML/CSS/JS; DOM text (not canvas) for realistic font rendering.
+- Wizard (DOM-based test chart): steps = direction → magnitude → ghost opacity → verify on a paragraph → export. The ghost step is anchored to real text: "line up the pale copy with the shadow you see on real words." Target: **< 2 minutes**. A **prominent safety prompt** appears at start: "new or sudden double vision? see an eye professional today."
+- `profile.js` — stores `{dx, dy, opacity, blur, fontWeightDelta, letterSpacingDelta}` in `localStorage`; emits a deterministic CSS string. Keeps deltas small; a paragraph **preview is mandatory** before export.
+- Exports — **one default: userstyle**. Bookmarklet injector and JSON profile under an Advanced disclosure.
+- Single-file HTML/CSS/JS; DOM text (not canvas) for realistic font rendering; **v1 targets light-mode pages only** (dark/`prefers-color-scheme` variants deferred — YAGNI).
 
 **Data flow:** user adjustments → live preview → profile → generated CSS.
 
-**Edge cases:** dx/dy sign conventions; dark vs light sites (generate `prefers-color-scheme` variants); single-eye calibration only (note binocular limits); mobile touch targets.
+**Edge cases:** dx/dy sign conventions; single-eye calibration only (note binocular limits); mobile touch targets ≥44px; dark pages in v1 show a "light mode only for now" notice rather than a bad profile.
 
-**A11y of the tool:** large test letters; native range inputs with labels; step status announced; no color-only cues.
+**A11y of the tool:** large test letters; native range inputs with labels; step status announced; no color-only cues; safety prompt readable at 200% zoom.
 
-**Testing:** unit tests for CSS generation (snapshot); manual calibration-flow test; copy audit to guarantee no "corrects vision" claims.
+**Testing:** unit tests for CSS generation (deterministic snapshot); manual calibration-flow timing test (<2 min); copy audit to guarantee no "corrects vision" claims and that the safety prompt is present.
 
-**Risks:** users may expect optical correction — the tool says "adjusts presentation to reduce perceived doubling"; generated CSS may hurt some fonts (keep deltas small, preview first).
+**Risks:** users may expect optical correction — the wizard and export both carry the no-guarantee wording; generated CSS may hurt some fonts (small deltas + mandatory preview); effect may be imperceptible for some users (disclosed, not hidden).
 
 ---
 
@@ -189,9 +190,10 @@
 
 ## Next steps (gates before implementation)
 
-1. **`multi-agent-brainstorming` peer review** (mandated by the `brainstorming` skill for high-impact/high-risk designs) on the three ⭐ specs at minimum.
-2. User selects build order; chosen ideas get per-project `research/` notes and `docs/TASKS.md` open rows.
-3. Implementation uses toolkit skills: `javascript-pro` / `frontend-ui-engineering` (web tools), `better-accessibility` (tool a11y), `no-ai-slop` (copy), `surgical-patch` (fixes), with the AGENTS.md §8 test gate in the project repo.
+1. ~~`multi-agent-brainstorming` peer review~~ — **done** (verdict REVISE; mandatory revisions folded into the ⭐ specs above).
+2. **User selects build order.** For each chosen idea: create the project repo (or a branch under an existing repo pattern), a per-project `research/<name>-research.md` note, a project `IMPLEMENTATION_PLAN.md` with phases + acceptance criteria, and a `docs/TASKS.md` open row (priority, model, effort, skill) per AGENTS.md §1.
+3. **Planning artifacts to produce before any code** (still planning-only until the user says build): repo layout, file map, test list, and the AGENTS.md §8 gate wiring.
+4. Implementation (only after step 2–3 approval) uses toolkit skills: `javascript-pro` / `frontend-ui-engineering` (web tools), `better-accessibility` (tool a11y), `no-ai-slop` (copy), `surgical-patch` (fixes), with the AGENTS.md §8 test gate in the project repo.
 
 ---
 
@@ -264,5 +266,5 @@ Final disposition: **REVISE** for all three ⭐ specs, with the mandatory revisi
 | R8 | Keratoscope calibration UX | S2, U3 | concrete anchor wording, mandatory preview, <2 min |
 | R9 | Keratoscope v1 scope | S4, C3 | single light mode; one default export (userstyle); safety prompt at start |
 
-Implementation may begin only after these revisions are folded into per-idea specs (update this doc or the project's `IMPLEMENTATION_PLAN.md`).
+Revisions R1–R9 are now folded into the ⭐ specs above (2026-09-10). Implementation may begin only after the build-order and per-project planning gates in "Next steps" are completed and the user approves the build.
 
