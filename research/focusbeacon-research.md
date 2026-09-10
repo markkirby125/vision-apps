@@ -1,4 +1,9 @@
 # FocusBeacon: Technical & Clinical Research Foundation
+
+## Authoritative Sources
+- [W3C. Understanding SC 2.4.13: Focus Appearance (WCAG 2.2, Level AAA).](https://www.w3.org/WAI/WCAG22/Understanding/focus-appearance.html)
+- [MDN. prefers-reduced-motion CSS media feature.](https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-reduced-motion)
+- [American Academy of Ophthalmology et al. "Learning Disabilities, Dyslexia and Vision" (2009 joint statement).](https://www.aao.org/education/clinical-statement/learning-disabilities-dyslexia-vision)
 ## High-Contrast Dual-Contour Focus Indicators and Cursor Radar for Low-Vision Accessibility
 
 **Target Artifact:** Research Dossier for `FocusBeacon` JavaScript Accessibility Engine  

@@ -1,4 +1,12 @@
 # SoftContrast: Anti-Halation Reading Palettes & Perceptual Accessibility Architecture
+
+## Authoritative Sources
+- [Myndex Research. APCA (SAPC-APCA) documentation.](https://git.apcacontrast.com/)
+- [Myndex/SAPC-APCA canonical repository (GitHub).](https://github.com/Myndex/SAPC-APCA)
+- [Myndex/apca-w3 — W3/AGWG-licensed reference implementation.](https://github.com/Myndex/apca-w3)
+- [van den Berg TJTP. "Scattering, straylight, and glare." *Handbook of Visual Optics*. Taylor & Francis.](https://www.taylorfrancis.com/chapters/edit/10.1201/9781315373034-33/scattering-straylight-glare-thomas-van-den-berg)
+
+> Note: APCA's documentation prohibits use in medical/clinical/human-safety applications without a written licence from Myndex. SoftContrast is a readability aid, not a clinical tool.
 ## Comprehensive Technical & Clinical Research Dossier
 
 **Author:** Vision Apps Research Subagent  
@@ -189,7 +197,7 @@ Mainstream accessibility settings frequently recommend "High-Contrast Dark Mode"
 +-------------------------------------------------------------+
 ```
 
-As demonstrated by Piepenbrock, Mayr, and Buchner (2013, 2014) in *Human Factors* and *Ergonomics*, positive polarity generally yields superior acuity and proofreading speed due to pupil constriction (miosis). However, for users requiring low overall screen luminance to prevent photophobia, the **anti-halation low-dynamic-range dark palette** (SoftContrast) is the only clinical compromise that prevents both retinal light flooding and peripheral optical blur.
+As demonstrated by Piepenbrock, Mayr, and Buchner (2013, 2014) in *Human Factors* and *Ergonomics*, positive polarity generally yields superior acuity and proofreading speed due to pupil constriction (miosis). However, for users requiring low overall screen luminance to prevent photophobia, the **anti-halation low-dynamic-range dark palette** (SoftContrast) is a practical readability compromise that avoids both retinal light flooding and peripheral optical blur (see [APCA/SAPC documentation](https://git.apcacontrast.com/)).
 
 ---
 

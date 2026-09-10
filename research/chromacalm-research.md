@@ -1,4 +1,10 @@
 # ChromaCalm: Clinical & Technical Research Report
+
+## Authoritative Sources
+- [Noseda R, Burstein R, et al. "Migraine photophobia originating in cone-driven retinal pathways." *Brain*. 2016;139(7):1971–1986. PMID 27207542](https://pubmed.ncbi.nlm.nih.gov/27207542/)
+- [Blackburn MK, et al. "FL-41 tint improves blink frequency, light sensitivity, and functional limitations in patients with benign essential blepharospasm." *Ophthalmology*. 2009;116(5):997–1001. PMID 19410958](https://pubmed.ncbi.nlm.nih.gov/19410958/)
+- [Berson DM, Dunn FA, Takao M. "Phototransduction by retinal ganglion cells that set the circadian clock." *Science*. 2002;295(5557):1070–1073. PMID 11834835](https://pubmed.ncbi.nlm.nih.gov/11834835/)
+- [van den Berg TJTP. "Scattering, straylight, and glare." *Handbook of Visual Optics*. Taylor & Francis.](https://www.taylorfrancis.com/chapters/edit/10.1201/9781315373034-33/scattering-straylight-glare-thomas-van-den-berg)
 ## Spectral Notch Filtering, 520nm Narrow-Band Green Therapy, and Anti-Halation Web Architecture
 
 *Document Version:* 1.0.0  

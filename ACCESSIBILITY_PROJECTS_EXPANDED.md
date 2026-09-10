@@ -54,10 +54,11 @@ cone-driven retinal pathways." Brain 139(7), 2016. DOI: 10.1093/brain/aww119
 - **Origin:** Developed in Birmingham, UK (early 1990s) to counter fluorescent light glare
 - **Spectrum:** Attenuates 480–520 nm (peak absorption 480–490 nm, blocking ~70–80% of blue-cyan LED spikes and the 436 nm mercury fluorescent spike)
 - **Melanopsin Targeting:** The 480 nm notch directly suppresses melanopsin ipRGC peak (λ_max ≈ 480 nm)
-- **Clinical Efficacy:**
+- **Reported Efficacy:**
   - Migraine frequency: 6.2 → 1.6 attacks/month (Good et al., Headache 1991)
-  - Blepharospasm: significant reduction in blink frequency and spasm force (Blackburn et al., Ophthalmology 2009)
+  - Blepharospasm: significant reduction in blink frequency and spasm force ([Blackburn et al., *Ophthalmology* 2009](https://pubmed.ncbi.nlm.nih.gov/19410958/))
   - Post-TBI photophobia: effective across >50% of TBI patients (Katz & Digre, Surv Ophthalmol 2016)
+  - Green light: migraine pain reduced ~20% at low intensity and green was the least-exacerbating colour across intensities ([Noseda, Burstein et al., *Brain* 2016](https://pubmed.ncbi.nlm.nih.gov/27207542/))
 - **Dark Adaptation Safety:** FL-41 maintains indoor VLT of 50–75%, avoiding the dark-adaptation rebound photophobia that sunglasses worn indoors cause
 
 ### 1.4 Amber Phosphor Photophysiology
@@ -313,8 +314,8 @@ palette per site — preferences remembered without an account.
 - Grayscale antialiasing (`-webkit-font-smoothing: antialiased`) — reduced colour fringing for astigmatism
 
 **Reading Ruler:** An optional horizontal highlight band follows the cursor Y-position in the
-palette's accent colour at 15% opacity — clinically validated for dyslexia and low-contrast
-sensitivity to maintain line tracking without a physical ruler.
+palette's accent colour at 15% opacity to support line tracking without a physical ruler.
+(Tinted lenses/overlays for dyslexia are not supported by the 2009 AAP/AAO joint statement — [Learning Disabilities, Dyslexia and Vision](https://www.aao.org/education/clinical-statement/learning-disabilities-dyslexia-vision).)
 
 ---
 
@@ -339,7 +340,7 @@ through a cardboard tube."
    never trigger reflexive saccades — must scan manually
 2. **Serial raster sweeping:** "Lighthouse technique" row-by-row scanning. Task time 3–5× longer
 3. **Lost cursor on 4K:** A 24 px cursor subtends <0.35° on a 4K/55° FOV monitor. Locating
-   it within a 5° functional field is clinically documented as search failure
+   it within a 5° functional field is associated with slower visual search in peripheral field loss
 4. **Focus jumps cause disorientation:** Large DOM focus teleports (>800 px / 25°) take the
    focus ring entirely outside the patient's functional field of view
 
@@ -692,4 +693,4 @@ All findings are fully documented and cited in the `/research/` directory:
 
 ---
 
-*Document generated: 2026-09-09 | All projects: OS-neutral, zero-install, open-source*
+*Document generated: 2026-09-09; updated 2026-09-10 | All projects: OS-neutral, zero-install, open-source*

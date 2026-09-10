@@ -11,7 +11,7 @@ Most developers assume vision accessibility begins and ends with high-contrast d
 * **Halation Effect:** In users with astigmatism, cataracts, or corneal irregularities, pure white text on pitch black bleeds and glows, causing blurred double-vision and severe eye strain.
 * **Retinal Ganglion Cell Stimulation (ipRGCs):** Photophobia is not caused by "brightness" alone; it is triggered by specific wavelengths (480nm–500nm blue-cyan spikes in LED backlights).
 * **Narrow-Band Green Light (Harvard Research):** Research led by Dr. Rami Burstein at Harvard Medical School proved that **narrow-band green light (~520nm)** is the only visual spectrum wavelength that does *not* exacerbate migraine pain or photophobia.
-* **FL-41 Rose Tint:** The clinical standard prescribed by neuro-ophthalmologists for blepharospasm, concussion recovery, and severe light sensitivity.
+* **FL-41 Rose Tint:** The clinical standard prescribed by neuro-ophthalmologists for blepharospasm, concussion recovery, and severe light sensitivity ([Blackburn et al., *Ophthalmology* 2009](https://pubmed.ncbi.nlm.nih.gov/19410958/)).
 
 ---
 
