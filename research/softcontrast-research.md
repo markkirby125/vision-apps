@@ -349,7 +349,7 @@ The **UserCSS** specification ([Stylus GitHub Wiki: Writing UserCSS](https://git
 ```css
 /* ==UserStyle==
 @name           SoftContrast: Anti-Halation Reading Engine
-@namespace      github.com/vision-apps/softcontrast
+@namespace      github.com/markkirby125/softcontrast
 @version        1.0.0
 @description    APCA-calibrated, anti-halation reading palettes for low vision and astigmatism.
 @author         Vision Apps
@@ -396,7 +396,7 @@ Userscripts offer programmatic, dynamic runtime injection across any site:
 ```javascript
 // ==UserScript==
 // @name         SoftContrast Universal Injector
-// @namespace    https://github.com/vision-apps/softcontrast
+// @namespace    https://github.com/markkirby125/softcontrast
 // @version      1.0.0
 // @description  Injects anti-halation APCA color schemes across websites
 // @match        *://*/*
@@ -631,7 +631,7 @@ Exporting a ready-to-paste bundle for Stylus (`.user.css`) or Tampermonkey (`.us
 To enable zero-install bookmarking and social sharing on `r/LowVision`, `r/Blind`, and `r/AccessibilityTech`, all palette settings can be encoded into a URL fragment:
 
 ```
-https://vision-apps.github.io/softcontrast/#name=Midnight+Ochre&bg=141416&fg=d6d0c4&link=e2b36f&lc=-72.4
+https://markkirby125.github.io/softcontrast/#name=Midnight+Ochre&bg=141416&fg=d6d0c4&link=e2b36f&lc=-72.4
 ```
 
 Using URL fragment identifiers (`#...`) ensures the state is never sent over the network to the server, preserving user privacy.
