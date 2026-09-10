@@ -21,6 +21,8 @@
   research/       per-project research notes (this repo)
   ```
 
+- **Local working copies**: the four project repos are checked out at `~/dev/clones/<project>` — outside the Google Drive/Insync tree this workspace sits in — and symlinked into the workspace root as `chromacalm/`, `softcontrast/`, `focusbeacon/` and `terminal-a11y/`. They are git-ignored; see `AGENTS.md` §8 for the slash-free ignore patterns and why they must stay slash-free.
+
 ## Platform-Specific Invariants
 
 - **Static HTML export; must respect prefers-reduced-motion; screen-reader compatibility requires stripping ASCII/ANSI**
