@@ -1,6 +1,12 @@
 # Vision Apps
 
+**Four small tools for readers whose eyes hurt from screens — low vision, photophobia, astigmatism.**
+
 An umbrella repository for Paul Kirby's accessibility toolkit — four small, dependency-light projects that reduce visual strain for low-vision, photophobic, and astigmatic readers.
+
+*Updated: 2026-09-10*
+
+**Start here:** open [ChromaCalm](https://markkirby125.github.io/chromacalm/) in your browser — no install, no account.
 
 ## Projects
 
