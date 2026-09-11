@@ -20,17 +20,16 @@ An umbrella repository for Paul Kirby's accessibility toolkit — four small, de
 The three web tools are served from GitHub Pages. `terminal-a11y` is a CLI package with no
 hosted demo; install it from its repository.
 
-## In planning
+## In planning / in build
 
 Three more browser tools are through buildable-spec design and peer review, and have full
-planning packages (phases + acceptance criteria + model/effort assignments). No repos or code
-yet — planning only, until the user approves the build.
+planning packages (phases + acceptance criteria + model/effort assignments).
 
-| Project | Description | Plan |
-| --- | --- | --- |
-| **GlareMap** | Spatial glare heatmap + targeted softening (hybrid lab + bookmarklet). | `planning/glaremap/IMPLEMENTATION_PLAN.md` |
-| **TemporalSafe** | Page-level flicker/flash reducer (userscript + demo page). | `planning/temporalsafe/IMPLEMENTATION_PLAN.md` |
-| **Keratoscope** | Astigmatism ghosting calibration lab (userstyle export). | `planning/keratoscope/IMPLEMENTATION_PLAN.md` |
+| Project | Description | Status | Plan |
+| --- | --- | --- | --- |
+| **GlareMap** | Spatial glare heatmap + targeted softening (hybrid lab + bookmarklet). | **Build approved 2026-09-11 — in progress** in [`markkirby125/glaremap`](https://github.com/markkirby125/glaremap). | `planning/glaremap/IMPLEMENTATION_PLAN.md` |
+| **TemporalSafe** | Page-level flicker/flash reducer (userscript + demo page). | Planning only. | `planning/temporalsafe/IMPLEMENTATION_PLAN.md` |
+| **Keratoscope** | Astigmatism ghosting calibration lab (userstyle export). | Planning only. | `planning/keratoscope/IMPLEMENTATION_PLAN.md` |
 
 Build order: GlareMap → TemporalSafe → Keratoscope. Task register: `docs/TASKS.md`.
 
