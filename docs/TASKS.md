@@ -85,6 +85,9 @@ Per-phase model (`flash`/`pro`) and effort (`low`/`medium`/`high`/`max`) for the
 
 ## Closed Tasks
 
+### 2026-09-11 — ChromaCalm accessibility review and merge
+- [x] **P2 — ChromaCalm accessibility review remediation** — pro (low) · `better-accessibility` (support: `surgical-patch`, `code-review-and-quality`). Performed a full review of `chromacalm.html` and `tests/chromacalm.test.mjs`, then applied fixes: visible skip link to `#reader`, `aria-expanded`/`aria-controls` on journal/export buttons with focus return, keyboard-operable file drop zone (`Enter`/`Space`) backed by a hidden `<input type="file">`, dashboard touch targets raised to ≥ 44 × 44 px, `Escape`/`Enter`/`Space` handling and focus trapping for the Green Light Bath overlay, and removal of all inline `onclick`/`onchange` handlers in favor of `addEventListener`. Extended the jsdom test suite to assert the new behaviors. **Merged**: `markkirby125/chromacalm` PR #1 (`markkirby125/fix/chromacalm-accessibility-review-fixes` → `main`). Verification: `npm test` green (3/3 passed).
+
 ### 2026-09-11 — Keratoscope build and deploy
 - [x] **P2 — Build Keratoscope** — pro (high) · `javascript-pro` (support: `better-accessibility`, `no-ai-slop`). Built the astigmatism ghosting calibration lab per `planning/keratoscope/IMPLEMENTATION_PLAN.md`: deterministic CSS profile generation (`profile.js`), anchored <2 min calibration wizard, preview + userstyle/CSS export, safety disclaimer, and accessibility audit (live region, focus management, dark-mode notice, gated export). **Deployed**: repo `markkirby125/keratoscope`, CI green (`npm test` 14 passed), live at `https://markkirby125.github.io/keratoscope/`. Remaining verification: manual calibration smoke + keyboard/screen-reader walk.
 
