@@ -101,6 +101,6 @@ Gap the toolkit can target: **spatial** (per-region glare, not global dimming), 
 
 ## Next steps
 
-1. User picks 1–2 ideas to develop.
-2. For the chosen idea(s), run a full `brainstorming` design pass (architecture, edge cases, testing) before implementation.
-3. Add chosen ideas to `docs/TASKS.md` as open rows and create per-project `research/` notes.
+1. ~~User picks 1–2 ideas to develop.~~ — **done** (2026-09-10): GlareMap, TemporalSafe, Keratoscope (the ⭐ trio) selected; Photopia, AmslerWatch, ReadingLab deferred until they pass `multi-agent-brainstorming` peer review.
+2. ~~For the chosen idea(s), run a full `brainstorming` design pass (architecture, edge cases, testing) before implementation.~~ — **done**, see `research/browser-vision-app-ideas-design.md` (peer review + R1–R9 folded in).
+3. ~~Add chosen ideas to `docs/TASKS.md` as open rows and create per-project `research/` notes.~~ — **done** (2026-09-10): open rows in `docs/TASKS.md` with phased model/effort assignments in `## Phased Implementation Plans`; `research/<name>-research.md` + `planning/<name>/IMPLEMENTATION_PLAN.md` for each of the trio. Next gate: user build approval.

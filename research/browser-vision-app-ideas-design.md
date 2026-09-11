@@ -1,6 +1,6 @@
 # Browser-Based Vision App Ideas — Buildable Specs (Brainstorming Pass)
 
-> Status: Understanding Lock **confirmed by user** (2026-09-10), all six ideas, buildable-spec depth. Peer review (`multi-agent-brainstorming`) **completed**; mandatory revisions R1–R9 **folded into the ⭐ specs below**. No implementation approved — next gate is build-order selection + per-project planning.
+> Status: Understanding Lock **confirmed by user** (2026-09-10), all six ideas, buildable-spec depth. Peer review (`multi-agent-brainstorming`) **completed**; mandatory revisions R1–R9 **folded into the ⭐ specs below**. Build-order gate **passed** (2026-09-10): ⭐ trio (GlareMap, TemporalSafe, Keratoscope) selected for the full planning package — see `planning/<name>/IMPLEMENTATION_PLAN.md` and `research/<name>-research.md`. No implementation approved — awaiting user build approval.
 > Parent research: `research/browser-vision-app-ideas.md`.
 
 ## Shared constraints (all six)
@@ -191,8 +191,8 @@
 ## Next steps (gates before implementation)
 
 1. ~~`multi-agent-brainstorming` peer review~~ — **done** (verdict REVISE; mandatory revisions folded into the ⭐ specs above).
-2. **User selects build order.** For each chosen idea: create the project repo (or a branch under an existing repo pattern), a per-project `research/<name>-research.md` note, a project `IMPLEMENTATION_PLAN.md` with phases + acceptance criteria, and a `docs/TASKS.md` open row (priority, model, effort, skill) per AGENTS.md §1.
-3. **Planning artifacts to produce before any code** (still planning-only until the user says build): repo layout, file map, test list, and the AGENTS.md §8 gate wiring.
+2. ~~**User selects build order.**~~ — **done** (2026-09-10): GlareMap, TemporalSafe, Keratoscope selected, in that sequence. Photopia, AmslerWatch, ReadingLab deferred until they pass their own `multi-agent-brainstorming` peer review. Per chosen idea, planning packages produced: `research/<name>-research.md`, `planning/<name>/IMPLEMENTATION_PLAN.md` (phases + acceptance criteria + repo layout + file map + test list + §8 gate wiring), and a `docs/TASKS.md` open row.
+3. ~~**Planning artifacts to produce before any code**~~ — **done** for the ⭐ trio (repo layout, file map, test list, AGENTS.md §8 gate wiring are inside each `planning/<name>/IMPLEMENTATION_PLAN.md`). Per-phase model/effort assignments live in `docs/TASKS.md` → **Phased Implementation Plans** and in each plan's **Model & Effort** table. Still planning-only until the user says build.
 4. Implementation (only after step 2–3 approval) uses toolkit skills: `javascript-pro` / `frontend-ui-engineering` (web tools), `better-accessibility` (tool a11y), `no-ai-slop` (copy), `surgical-patch` (fixes), with the AGENTS.md §8 test gate in the project repo.
 
 ---

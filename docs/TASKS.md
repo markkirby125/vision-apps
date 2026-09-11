@@ -3,8 +3,8 @@
 Source of truth for task priority, model/effort, and skill (AGENTS.md §1).
 Row shape: `- [ ] **P1 — Short name** — pro (high) · `skill-name`. One-line summary.`
 Model: `flash` = fetch / patch / implement · `pro` = judgement / architecture / legal.
-Flash effort: `off` = registry/listing-only or deterministic edit · `on` = requires model-generated code, copy, or judgement.
-Pro effort: `low` = simple lookups / single-file edits / minor fixes · `high` = standard implementation / multi-step logic · `max` = complex architecture / deep reasoning / cross-cutting invariants.
+Effort scale (per task/phase): `low` = deterministic edit / registry / simple lookup · `medium` = model-generated code, copy, or multi-file edit · `high` = standard implementation / multi-step logic · `max` = complex architecture / deep reasoning / cross-cutting invariants.
+Legacy mapping: flash `off` ≈ low · flash `on` ≈ medium · pro `low`/`high`/`max` unchanged.
 Priorities: P0 = breaks build / launch / money flow · P1 = breaks core promise · P2 = correctness / trust / perf risk · P3 = polish / enhancement.
 
 ---
@@ -35,8 +35,54 @@ Every open row MUST carry five fields: priority, name, summary, model (with effo
 - [ ] **P2 — Audit softcontrast + focusbeacon internal docs against shipped code** — pro (low) · `surgical-patch`. Only chromacalm's own README has been audited against its `PRESETS`; `softcontrast/README.md`, `focusbeacon/README.md` and the `IMPLEMENTATION_PLAN.md` files have not been checked for the same claim-vs-code class (unverifiable "calibrated" / "guaranteed" / "proof" wording, stale phase status).
 - [ ] **P2 — Resolve remaining unverified README claims** — pro (low) · `surgical-patch`. Flagged during the audit but deliberately not actioned: chromacalm's empty "Screenshots" placeholder; terminal-a11y's "photophysiologically calibrated amber palette" and its WCAG2ICT "Fulfills criteria 1.1.1, 1.3.2, 1.4.1, 1.4.3, 2.2.2, 4.1.3" compliance claim, which needs sourcing or softening per AGENTS.md §7; and the `CLAUDE_AX_SCREEN_READER` env var its README advertises but which has never been checked against `detection.py`. Support: `no-ai-slop`.
 - [ ] **P2 — Reconcile AGENTS.md §4 with available tooling** — pro (low) · `writing-for-agents`. §4 mandates live-data grounding via Scrapling MCP (`fetch`, `bulk_get`), but Scrapling does not appear in this workspace's capability catalog (searched); grounding was instead done with the `gh` CLI, `curl` and `web_fetch`. Either name the tools actually available here or document that fallback.
+- [ ] **P2 — Build GlareMap** — pro (high) · `javascript-pro` (support: `better-accessibility`, `no-ai-slop`). Planning package ready: `planning/glaremap/IMPLEMENTATION_PLAN.md` + `research/glaremap-research.md`. Hybrid lab + bookmarklet spatial glare heatmap; revisions R1–R3/S5 are mandatory. Phased model/effort in `## Phased Implementation Plans` below. Planning only — awaiting user build approval.
+- [ ] **P2 — Build TemporalSafe** — pro (high) · `javascript-pro` (support: `better-accessibility`, `no-ai-slop`). Planning package ready: `planning/temporalsafe/IMPLEMENTATION_PLAN.md` + `research/temporalsafe-research.md`. Page-level flicker/flash reducer (userscript + demo page); revisions R4–R6 mandatory. Phased model/effort in `## Phased Implementation Plans` below. Awaiting user build approval.
+- [ ] **P2 — Build Keratoscope** — pro (high) · `javascript-pro` (support: `better-accessibility`, `no-ai-slop`). Planning package ready: `planning/keratoscope/IMPLEMENTATION_PLAN.md` + `research/keratoscope-research.md`. Astigmatism ghosting calibration lab; revisions R7–R9 mandatory (no-guarantee wording, safety prompt, light-mode v1). Phased model/effort in `## Phased Implementation Plans` below. Awaiting user build approval.
 
 > Environment note (not a task): `Desktop/Hosted-Services` is a symlink into the Google Drive/Insync tree, so the four clones sat inside a synced folder for ~2 h before being moved out to `~/dev/clones`. Drive trash/version history may still hold snapshots of those `.git` trees; purge from the Drive UI if that sync noise matters.
+
+---
+
+## Phased Implementation Plans (model & effort)
+
+Per-phase model (`flash`/`pro`) and effort (`low`/`medium`/`high`/`max`) for the three build-approved projects. Phase-level source of truth (steps, acceptance criteria, verification, gate wiring): `planning/<name>/IMPLEMENTATION_PLAN.md`. All UI/copy phases also carry support skills `better-accessibility` + `no-ai-slop`.
+
+### GlareMap — `planning/glaremap/IMPLEMENTATION_PLAN.md`
+
+| # | Phase | Model | Effort | Skill |
+| --- | --- | --- | --- | --- |
+| 1 | Repo scaffold + gate wiring | flash | low | `surgical-patch` |
+| 2 | `scanner.js` luminance core | pro | high | `javascript-pro` |
+| 3 | `renderer.js` heatmap + softening mask | pro | medium | `javascript-pro` |
+| 4 | Lab page (URL/paste, sliders, export) | flash | medium | `frontend-ui-engineering` |
+| 5 | Bookmarklet + floating panel | pro | medium | `javascript-pro` |
+| 6 | Tool a11y + copy audit | pro | low | `better-accessibility` |
+| 7 | Deploy + README + llms.txt | flash | low | `no-ai-slop` |
+
+### TemporalSafe — `planning/temporalsafe/IMPLEMENTATION_PLAN.md`
+
+| # | Phase | Model | Effort | Skill |
+| --- | --- | --- | --- | --- |
+| 1 | Repo scaffold + gate wiring | flash | low | `surgical-patch` |
+| 2 | Rule classifier core (injected clock) | pro | high | `javascript-pro` |
+| 3 | Reducer strategies + undo + allowlist | pro | high | `javascript-pro` |
+| 4 | Profiles + throttled observer | pro | medium | `javascript-pro` |
+| 5 | Floating panel + live-region announcements | pro | medium | `javascript-pro` |
+| 6 | Tool a11y + copy audit | pro | low | `better-accessibility` |
+| 7 | Userscript build + deploy + docs | flash | medium | `javascript-pro` |
+
+### Keratoscope — `planning/keratoscope/IMPLEMENTATION_PLAN.md`
+
+| # | Phase | Model | Effort | Skill |
+| --- | --- | --- | --- | --- |
+| 1 | Repo scaffold + gate wiring | flash | low | `surgical-patch` |
+| 2 | `profile.js` deterministic CSS generation | pro | medium | `javascript-pro` |
+| 3 | Calibration wizard (<2 min, anchored) | pro | high | `frontend-ui-engineering` |
+| 4 | Preview + exports (userstyle default) | pro | medium | `javascript-pro` |
+| 5 | Tool a11y + copy audit | pro | low | `better-accessibility` |
+| 6 | Deploy + README + llms.txt | flash | low | `no-ai-slop` |
+
+> Queued (not implementation tasks yet): Photopia, AmslerWatch, ReadingLab — deferred until they pass their own `multi-agent-brainstorming` peer review, per `research/browser-vision-app-ideas-design.md` Next steps.
 
 ---
 
@@ -46,6 +92,9 @@ Every open row MUST carry five fields: priority, name, summary, model (with effo
 COMPLETED TASKS:
 Move completed tasks here under dated headings (ISO format: YYYY-MM-DD) with completion checkmarks and summary:
 -->
+
+### 2026-09-10 — Build-order gate + planning packages for the ⭐ trio
+- [x] **P2 — Build-order gate: planning packages for the ⭐ trio** — pro (high) · `planning-and-task-breakdown` (support: `better-accessibility`). Chose GlareMap, TemporalSafe, Keratoscope for the full planning package (Photopia/AmslerWatch/ReadingLab deferred until they pass `multi-agent-brainstorming`). Produced `research/{glaremap,temporalsafe,keratoscope}-research.md` and `planning/<name>/IMPLEMENTATION_PLAN.md` (phases + acceptance criteria + repo layout + file map + test list + AGENTS.md §8 gate wiring). No code; build approval still pending.
 
 ### 2026-09-10 — Browser-based vision app idea research
 - [x] **P2 — Research new browser-based vision accessibility app ideas** — pro (low) · `brainstorming` (support: `web_search`, `better-accessibility`). Researched the 2026 competitor landscape and produced `research/browser-vision-app-ideas.md` with a grounded shortlist of six non-duplicative, 100% browser-based ideas: GlareMap (spatial glare heatmap + targeted softening), TemporalSafe (page-level flicker/flash reducer), Keratoscope (astigmatism ghosting calibration lab), Photopia (photophobia stimulus audit for devs), AmslerWatch (local Amsler-grid journal), ReadingLab (low-vision readability report + fixes). Top three marked ⭐: GlareMap, TemporalSafe, Keratoscope. None approved for implementation yet; next step is user picks 1–2 and a full `brainstorming` design pass.

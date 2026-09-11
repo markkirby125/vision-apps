@@ -20,6 +20,20 @@ An umbrella repository for Paul Kirby's accessibility toolkit — four small, de
 The three web tools are served from GitHub Pages. `terminal-a11y` is a CLI package with no
 hosted demo; install it from its repository.
 
+## In planning
+
+Three more browser tools are through buildable-spec design and peer review, and have full
+planning packages (phases + acceptance criteria + model/effort assignments). No repos or code
+yet — planning only, until the user approves the build.
+
+| Project | Description | Plan |
+| --- | --- | --- |
+| **GlareMap** | Spatial glare heatmap + targeted softening (hybrid lab + bookmarklet). | `planning/glaremap/IMPLEMENTATION_PLAN.md` |
+| **TemporalSafe** | Page-level flicker/flash reducer (userscript + demo page). | `planning/temporalsafe/IMPLEMENTATION_PLAN.md` |
+| **Keratoscope** | Astigmatism ghosting calibration lab (userstyle export). | `planning/keratoscope/IMPLEMENTATION_PLAN.md` |
+
+Build order: GlareMap → TemporalSafe → Keratoscope. Task register: `docs/TASKS.md`.
+
 ## Layout
 
 Each project lives in its own repository (linked above). This repo holds the shared governance and research:
