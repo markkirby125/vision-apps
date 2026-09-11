@@ -40,7 +40,7 @@ Automated agent governance. Behavioral rules only.
 
 ## 4. Live Data Grounding
 
-- **Grounding**: Extract live data via Scrapling MCP (`fetch`, `bulk_get`) before writing code. Never hallucinate endpoints or docs.
+- **Grounding**: Extract live data via `gh` CLI, `curl`, and `mcp__fetch__fetch` before writing code. Never hallucinate endpoints or docs.
 
 ## 5. Defensive Error Handling
 
