@@ -1,6 +1,6 @@
 # Browser-Based Vision App Ideas — Buildable Specs (Brainstorming Pass)
 
-> Status: Understanding Lock **confirmed by user** (2026-09-10), all six ideas, buildable-spec depth. Peer review (`multi-agent-brainstorming`) **completed**; mandatory revisions R1–R9 **folded into the ⭐ specs below**. Build-order gate **passed** (2026-09-10): ⭐ trio (GlareMap, TemporalSafe, Keratoscope) selected for the full planning package — see `planning/<name>/IMPLEMENTATION_PLAN.md` and `research/<name>-research.md`. Build approved 2026-09-11 for GlareMap (implementation in progress in `markkirby125/glaremap`); TemporalSafe and Keratoscope still awaiting build approval.
+> Status: Understanding Lock **confirmed by user** (2026-09-10), all six ideas, buildable-spec depth. Peer review (`multi-agent-brainstorming`) **completed**; mandatory revisions R1–R9 **folded into the ⭐ specs below**. Build-order gate **passed** (2026-09-10): ⭐ trio (GlareMap, TemporalSafe, Keratoscope) selected for the full planning package — see `planning/<name>/IMPLEMENTATION_PLAN.md` and `research/<name>-research.md`. GlareMap and TemporalSafe **implemented and deployed** 2026-09-11 (`markkirby125/glaremap`, `markkirby125/temporalsafe`); Keratoscope still awaiting build approval.
 > Parent research: `research/browser-vision-app-ideas.md`.
 
 ## Shared constraints (all six)

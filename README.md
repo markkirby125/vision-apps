@@ -1,8 +1,8 @@
 # Vision Apps
 
-**Four small tools for readers whose eyes hurt from screens — low vision, photophobia, astigmatism.**
+**Six small tools for readers whose eyes hurt from screens — low vision, photophobia, astigmatism.**
 
-An umbrella repository for Paul Kirby's accessibility toolkit — four small, dependency-light projects that reduce visual strain for low-vision, photophobic, and astigmatic readers.
+An umbrella repository for Paul Kirby's accessibility toolkit — six small, dependency-light projects that reduce visual strain for low-vision, photophobic, and astigmatic readers.
 
 *Updated: 2026-09-10*
 
@@ -16,22 +16,22 @@ An umbrella repository for Paul Kirby's accessibility toolkit — four small, de
 | **SoftContrast** | Anti-halation reading palette generator using APCA and OKLCH. | [markkirby125/softcontrast](https://github.com/markkirby125/softcontrast) | [softcontrast](https://markkirby125.github.io/softcontrast/) |
 | **terminal-a11y** | Terminal accessibility enhancement layer (screen-reader, photophobia, sensory-budget, braille, and audio-progress modes). | [markkirby125/terminal-a11y](https://github.com/markkirby125/terminal-a11y) | — |
 | **FocusBeacon** | Ultra-lightweight vanilla JS focus-ring accessibility engine with a high-contrast dual-contour focus ring and cursor radar. | [markkirby125/focusbeacon](https://github.com/markkirby125/focusbeacon) | [focusbeacon](https://markkirby125.github.io/focusbeacon/) |
+| **GlareMap** | Spatial glare heatmap + targeted softening for photophobia (lab page + bookmarklet). | [markkirby125/glaremap](https://github.com/markkirby125/glaremap) | [glaremap](https://markkirby125.github.io/glaremap/) |
+| **TemporalSafe** | Page-level flicker/flash reducer for photosensitive and migraine users (userscript + demo). | [markkirby125/temporalsafe](https://github.com/markkirby125/temporalsafe) | [temporalsafe](https://markkirby125.github.io/temporalsafe/) |
 
-The three web tools are served from GitHub Pages. `terminal-a11y` is a CLI package with no
+The five web tools are served from GitHub Pages. `terminal-a11y` is a CLI package with no
 hosted demo; install it from its repository.
 
-## In planning / in build
+## In planning
 
-Three more browser tools are through buildable-spec design and peer review, and have full
-planning packages (phases + acceptance criteria + model/effort assignments).
+One more browser tool is through buildable-spec design and peer review, and has a full
+planning package (phases + acceptance criteria + model/effort assignments).
 
 | Project | Description | Status | Plan |
 | --- | --- | --- | --- |
-| **GlareMap** | Spatial glare heatmap + targeted softening (hybrid lab + bookmarklet). | **Build approved 2026-09-11 — in progress** in [`markkirby125/glaremap`](https://github.com/markkirby125/glaremap). | `planning/glaremap/IMPLEMENTATION_PLAN.md` |
-| **TemporalSafe** | Page-level flicker/flash reducer (userscript + demo page). | Planning only. | `planning/temporalsafe/IMPLEMENTATION_PLAN.md` |
 | **Keratoscope** | Astigmatism ghosting calibration lab (userstyle export). | Planning only. | `planning/keratoscope/IMPLEMENTATION_PLAN.md` |
 
-Build order: GlareMap → TemporalSafe → Keratoscope. Task register: `docs/TASKS.md`.
+Next in build order: Keratoscope (GlareMap and TemporalSafe are live). Task register: `docs/TASKS.md`.
 
 ## Layout
 

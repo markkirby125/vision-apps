@@ -6,8 +6,8 @@
 - [SoftContrast](https://github.com/markkirby125/softcontrast): Anti-halation reading palette generator using APCA and OKLCH.
 - [terminal-a11y](https://github.com/markkirby125/terminal-a11y): Terminal accessibility enhancement layer (screen-reader, photophobia, sensory-budget, braille, audio-progress).
 - [FocusBeacon](https://github.com/markkirby125/focusbeacon): Ultra-lightweight vanilla JS focus-ring accessibility engine with a high-contrast dual-contour focus ring and cursor radar.
+- [GlareMap](https://github.com/markkirby125/glaremap): Spatial glare heatmap + targeted softening for photophobia (lab page + bookmarklet).
+- [TemporalSafe](https://github.com/markkirby125/temporalsafe): Page-level flicker/flash reducer for photosensitive and migraine users (userscript + demo page).
 
-In planning / in build (see `docs/TASKS.md` → Phased Implementation Plans):
-- [GlareMap](https://github.com/markkirby125/glaremap): Spatial glare heatmap + targeted softening (hybrid lab + bookmarklet). Build approved 2026-09-11 — in progress. Plan: `planning/glaremap/IMPLEMENTATION_PLAN.md`.
-- TemporalSafe: Page-level flicker/flash reducer (userscript + demo page). Planning only. Plan: `planning/temporalsafe/IMPLEMENTATION_PLAN.md`.
-- Keratoscope: Astigmatism ghosting calibration lab (userstyle export). Planning only. Plan: `planning/keratoscope/IMPLEMENTATION_PLAN.md`.
+In planning (see `docs/TASKS.md` → Phased Implementation Plans):
+- Keratoscope: Astigmatism ghosting calibration lab (userstyle export). Plan: `planning/keratoscope/IMPLEMENTATION_PLAN.md`.
