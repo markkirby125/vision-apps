@@ -8,6 +8,4 @@
 - [FocusBeacon](https://github.com/markkirby125/focusbeacon): Ultra-lightweight vanilla JS focus-ring accessibility engine with a high-contrast dual-contour focus ring and cursor radar.
 - [GlareMap](https://github.com/markkirby125/glaremap): Spatial glare heatmap + targeted softening for photophobia (lab page + bookmarklet).
 - [TemporalSafe](https://github.com/markkirby125/temporalsafe): Page-level flicker/flash reducer for photosensitive and migraine users (userscript + demo page).
-
-In planning (see `docs/TASKS.md` → Phased Implementation Plans):
-- Keratoscope: Astigmatism ghosting calibration lab (userstyle export). Plan: `planning/keratoscope/IMPLEMENTATION_PLAN.md`.
+- [Keratoscope](https://github.com/markkirby125/keratoscope): Astigmatism ghosting calibration lab (userstyle export).

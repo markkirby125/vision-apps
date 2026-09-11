@@ -1,10 +1,10 @@
 # Vision Apps
 
-**Six small tools for readers whose eyes hurt from screens — low vision, photophobia, astigmatism.**
+**Seven small tools for readers whose eyes hurt from screens — low vision, photophobia, astigmatism.**
 
-An umbrella repository for Paul Kirby's accessibility toolkit — six small, dependency-light projects that reduce visual strain for low-vision, photophobic, and astigmatic readers.
+An umbrella repository for Paul Kirby's accessibility toolkit — seven small, dependency-light projects that reduce visual strain for low-vision, photophobic, astigmatic, and photosensitive readers.
 
-*Updated: 2026-09-10*
+*Updated: 2026-09-11*
 
 **Start here:** open [ChromaCalm](https://markkirby125.github.io/chromacalm/) in your browser — no install, no account.
 
@@ -18,20 +18,10 @@ An umbrella repository for Paul Kirby's accessibility toolkit — six small, dep
 | **FocusBeacon** | Ultra-lightweight vanilla JS focus-ring accessibility engine with a high-contrast dual-contour focus ring and cursor radar. | [markkirby125/focusbeacon](https://github.com/markkirby125/focusbeacon) | [focusbeacon](https://markkirby125.github.io/focusbeacon/) |
 | **GlareMap** | Spatial glare heatmap + targeted softening for photophobia (lab page + bookmarklet). | [markkirby125/glaremap](https://github.com/markkirby125/glaremap) | [glaremap](https://markkirby125.github.io/glaremap/) |
 | **TemporalSafe** | Page-level flicker/flash reducer for photosensitive and migraine users (userscript + demo). | [markkirby125/temporalsafe](https://github.com/markkirby125/temporalsafe) | [temporalsafe](https://markkirby125.github.io/temporalsafe/) |
+| **Keratoscope** | Astigmatism ghosting calibration lab (userstyle export). | [markkirby125/keratoscope](https://github.com/markkirby125/keratoscope) | [keratoscope](https://markkirby125.github.io/keratoscope/) |
 
-The five web tools are served from GitHub Pages. `terminal-a11y` is a CLI package with no
+The six web tools are served from GitHub Pages. `terminal-a11y` is a CLI package with no
 hosted demo; install it from its repository.
-
-## In planning
-
-One more browser tool is through buildable-spec design and peer review, and has a full
-planning package (phases + acceptance criteria + model/effort assignments).
-
-| Project | Description | Status | Plan |
-| --- | --- | --- | --- |
-| **Keratoscope** | Astigmatism ghosting calibration lab (userstyle export). | Planning only. | `planning/keratoscope/IMPLEMENTATION_PLAN.md` |
-
-Next in build order: Keratoscope (GlareMap and TemporalSafe are live). Task register: `docs/TASKS.md`.
 
 ## Layout
 
