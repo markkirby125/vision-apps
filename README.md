@@ -4,7 +4,7 @@
 
 An umbrella repository for Paul Kirby's accessibility toolkit — seven small, dependency-light projects that reduce visual strain for low-vision, photophobic, astigmatic, and photosensitive readers.
 
-*Updated: 2026-09-11*
+*Updated: 2026-10-01*
 
 **Start here:** open [ChromaCalm](https://markkirby125.github.io/chromacalm/) in your browser — no install, no account.
 
@@ -30,4 +30,5 @@ Each project lives in its own repository (linked above). This repo holds the sha
 - `docs/` — task register (`TASKS.md`) and reference specs.
 - `research/` — per-project research notes.
 - `AGENTS.md` — agent governance.
+- `HANDOVER.md` — current session state, open gaps, and how to resume interrupted work. Read this first when picking up where a session left off.
 - `ACCESSIBILITY_PROJECTS_EXPANDED.md` and `ACCESSIBILITY_PROJECT_IDEAS.md` — project background and ideas.

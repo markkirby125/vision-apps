@@ -9,6 +9,7 @@ Automated agent governance. Behavioral rules only.
 | `docs/reference/project-stack.md` | Consult ONLY when starting tasks needing stack constraints, language rules, folder structure, or endpoints. |
 | `docs/reference/domain-spec.md` | Consult ONLY when modifying color/contrast formulas, SVG filters, or accessibility thresholds. |
 | `docs/TASKS.md` | Consult on EVERY task to read/write task register (priority, model, effort, skill). |
+| `HANDOVER.md` | Read FIRST when picking up a dropped thread. Session state, unreviewed gaps, resume commands, known traps. Stale once work starts — update it, do not treat it as live truth. |
 | `ACCESSIBILITY_PROJECTS_EXPANDED.md` | Consult for broad session onboarding and niche background. |
 | `README.md` | Project index; keep repo links accurate. |
 | `llms.txt` | LLM-facing project index; keep in sync with `README.md`. |

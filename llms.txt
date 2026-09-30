@@ -2,6 +2,7 @@
 
 > Umbrella repository for Paul Kirby's accessibility toolkit.
 
+- [HANDOVER.md](https://github.com/markkirby125/vision-apps/blob/main/HANDOVER.md): Current session state, unreviewed gaps, and resume commands for interrupted work. Read first when picking up a dropped thread.
 - [ChromaCalm](https://github.com/markkirby125/chromacalm): Zero-install spectral notch filtering web tool for photophobia, migraine, and screen halation.
 - [SoftContrast](https://github.com/markkirby125/softcontrast): Anti-halation reading palette generator using APCA and OKLCH.
 - [terminal-a11y](https://github.com/markkirby125/terminal-a11y): Terminal accessibility enhancement layer (screen-reader, photophobia, sensory-budget, braille, audio-progress).
