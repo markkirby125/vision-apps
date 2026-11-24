@@ -66,7 +66,7 @@ Automated agent governance. Behavioral rules only.
 
 This repo (`markkirby125/vision-apps`) is documentation-only — no `package.json`, no `pyproject.toml`, no build or test step. Gate in the project repo you are actually changing.
 
-The four project repos are cloned outside the synced tree in `~/dev/clones/` and symlinked in as `chromacalm/`, `softcontrast/`, `focusbeacon/` and `terminal-a11y/` (git-ignored), so the gate below runs from here while their `.git` directories stay out of Google Drive/Insync.
+The four project repos are cloned in `~/AI_projects/tools/dev/clones/` (moved from `~/dev/clones/` on 2026-11-23) and symlinked in as `chromacalm/`, `softcontrast/`, `focusbeacon/` and `terminal-a11y/` (git-ignored), so the gate below runs from here while their `.git` directories stay in their own clones. Nothing here is in Google Drive/Insync any more.
 
 1. **Gate**: `npm run test` in `chromacalm` / `softcontrast` / `focusbeacon` (`node --test tests/*.test.mjs`); `pip install pytest .` then `pytest -q` in `terminal-a11y`. No project repo defines a `lint` script.
 2. **Deploy**: `git push origin main` in whichever repo you changed — `markkirby125/{chromacalm,softcontrast,terminal-a11y,focusbeacon}`, or `markkirby125/vision-apps` for these docs.
