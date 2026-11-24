@@ -11,7 +11,7 @@
 
 **Author:** Vision Apps Research Subagent  
 **Date:** September 2026  
-**Document Target:** `/home/paulk/Desktop/Hosted-Services/Vision Apps/research/softcontrast-research.md`  
+**Document Target:** `/home/paulk/AI_projects/apps/Vision Apps/research/softcontrast-research.md`  
 **Purpose:** Foundational technical, clinical, and architectural research for **SoftContrast**, an anti-halation reading palette generator leveraging the Accessible Perceptual Contrast Algorithm (APCA), OKLCH color science, and cross-browser userstyle/userscript injection.
 
 ---

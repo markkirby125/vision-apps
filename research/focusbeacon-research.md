@@ -7,7 +7,7 @@
 ## High-Contrast Dual-Contour Focus Indicators and Cursor Radar for Low-Vision Accessibility
 
 **Target Artifact:** Research Dossier for `FocusBeacon` JavaScript Accessibility Engine  
-**Target Path:** `/home/paulk/Desktop/Hosted-Services/Vision Apps/research/focusbeacon-research.md`  
+**Target Path:** `/home/paulk/AI_projects/apps/Vision Apps/research/focusbeacon-research.md`  
 **Date:** September 2026  
 
 ---
