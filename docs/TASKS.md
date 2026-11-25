@@ -26,6 +26,8 @@ Whenever an AI agent reads this file, it will automatically:
 
 Open tasks live in Backlog.md (`backlog/tasks/`, 35 tasks, imported 2026-11-25 from this file). Use `npx backlog.md task list --plain` to list them, `npx backlog.md task <id> --plain` to read one, and `npx backlog.md task create` or `task edit` to change them.
 
+Register rule (kept from the old file): every open row MUST carry five fields: priority, name, summary, model (with effort), skill. Optional sixth: support.
+
 Finished work: docs/TASKS-ARCHIVE.md (includes the former Closed Tasks section). Long evidence: docs/TASKS-EVIDENCE.md. The pre-migration copy of this file is in git history and in `~/backups/tasks-backlog-2026-11-25/vision-apps/`.
 
 ### OCR remediation rows — `ocr scan` sweep 2026-09-30 → 2026-10-01
